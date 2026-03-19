@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Race Shed Fantasy V14 Auto Sync</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="top-stripe"></div>
+
+  <header class="hero shell">
+    <div class="hero-copy panel">
+      <div class="eyebrow">2026 NASCAR Fantasy League</div>
+      <h1>Race Shed Fantasy <span>V14</span></h1>
+      <p>Auto-sync version. This dashboard reads the Excel workbook directly from the repo, so you update one Excel file and the players see the refreshed board after Vercel redeploys.</p>
+      <div class="pill-row" id="heroPills"></div>
+      <div class="hero-subgrid">
+        <div class="mini-panel">
+          <div class="label">Workbook status</div>
+          <div class="big-number" id="workbookStatus">Loading…</div>
+        </div>
+        <div class="mini-panel">
+          <div class="label">Picks submitted</div>
+          <div class="big-number" id="picksSubmittedCount">-</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-details panel">
+      <div class="section-head hero-head">
+        <div>
+          <div class="eyebrow">Track details</div>
+          <h2 id="trackTitle">Loading track details…</h2>
+        </div>
+        <div class="track-badge" id="trackBadge">AUTO</div>
+      </div>
+      <div class="track-grid" id="trackGrid"></div>
+      <div class="track-note" id="trackNote">This version reads directly from the workbook file in your GitHub repo.</div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="headline panel">
+      <div>
+        <div class="eyebrow">Featured race</div>
+        <div class="featured-title" id="featuredRaceName">Loading…</div>
+        <div class="featured-meta" id="featuredMeta"></div>
+      </div>
+      <div class="live-chip">AUTO SYNC • PUBLIC VIEW ONLY</div>
+    </section>
+
+    <section class="top-grid">
+      <article class="panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Weekly picks</div>
+            <h2>Player picks at the top</h2>
+          </div>
+          <div class="race-select-wrap">
+            <label for="racePicker">Race</label>
+            <select id="racePicker"></select>
+          </div>
+        </div>
+        <div id="picksSummary" class="summary"></div>
+        <div id="picksBoard"></div>
+      </article>
+
+      <article class="panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Latest scoring</div>
+            <h2>Previous race driver points</h2>
+          </div>
+        </div>
+        <div id="latestScoring"></div>
+      </article>
+    </section>
+
+    <section class="stats-grid" id="statsGrid"></section>
+
+    <section class="mid-grid">
+      <article class="panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Championship</div>
+            <h2>Standings</h2>
+          </div>
+        </div>
+        <div id="standingsBoard"></div>
+      </article>
+
+      <article class="panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Latest completed race</div>
+            <h2 id="resultsTitle">Race results</h2>
+          </div>
+        </div>
+        <div id="podiumBoard" class="podium-wrap"></div>
+        <div id="raceResults"></div>
+      </article>
+    </section>
+
+    <section class="bottom-grid">
+      <article class="panel">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Season trail</div>
+            <h2>Full season schedule</h2>
+          </div>
+        </div>
+        <div id="scheduleBoard"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
